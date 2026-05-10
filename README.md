@@ -24,6 +24,7 @@ Required:
 
 - `TURSO_DATABASE_URL` or `VITE_TURSO_URL`
 - `TURSO_AUTH_TOKEN` or `VITE_TURSO_TOKEN`
+- `ADMIN_PASSWORD` (required to access `/admin/questions` and `/results`)
 
 ## Development
 

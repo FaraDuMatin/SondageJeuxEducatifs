@@ -18,7 +18,7 @@ function parseOptions(raw: string, includeOther: boolean): MultipleChoiceOption[
     .map((line) => line.trim())
     .filter(Boolean);
 
-  const options = lines.map((line) => {
+  const options: MultipleChoiceOption[] = lines.map((line) => {
     const [labelPart, valuePart] = line.split("|");
     const label = labelPart.trim();
     const value = valuePart?.trim() || slugify(label) || crypto.randomUUID();
