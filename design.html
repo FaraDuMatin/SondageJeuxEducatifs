@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sondage - Bauhaus Poll</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;family=Space+Grotesk:wght@400;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#1a1a1a",
+                        "primary": "#1a1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#e2ddd4",
+                        "surface-dim": "#d6d1c9",
+                        "on-primary-fixed-variant": "#1a1a1a",
+                        "on-secondary": "#1a1a1a",
+                        "primary-container": "#ffcc00",
+                        "outline": "#1a1a1a",
+                        "inverse-surface": "#1a1a1a",
+                        "tertiary-fixed-dim": "#a8c6ff",
+                        "on-tertiary-fixed-variant": "#1a1a1a",
+                        "tertiary-fixed": "#d6e3ff",
+                        "on-secondary-fixed": "#1a1a1a",
+                        "on-secondary-container": "#1a1a1a",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed-dim": "#ffb3ab",
+                        "on-tertiary-fixed": "#1a1a1a",
+                        "on-surface": "#1a1a1a",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#f5f0e8",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#f5f0e8",
+                        "outline-variant": "#d0cbc3",
+                        "surface-container-low": "#f2ede5",
+                        "on-primary": "#ffffff",
+                        "error": "#cc0000",
+                        "surface-tint": "#1a1a1a",
+                        "tertiary": "#0055ff",
+                        "primary-fixed": "#ffcc00",
+                        "on-tertiary-container": "#1a1a1a",
+                        "tertiary-container": "#d6e3ff",
+                        "surface-container-high": "#e8e3da",
+                        "on-primary-container": "#1a1a1a",
+                        "secondary": "#e63b2e",
+                        "on-secondary-fixed-variant": "#1a1a1a",
+                        "background": "#f5f0e8",
+                        "on-primary-fixed": "#1a1a1a",
+                        "surface-container": "#eee9e0",
+                        "surface-bright": "#faf7f2",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#e8e3da",
+                        "on-surface-variant": "#4a4a4a",
+                        "primary-fixed-dim": "#e6b800",
+                        "secondary-fixed": "#ffdad6",
+                        "surface": "#f5f0e8",
+                        "secondary-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "0px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk", "sans-serif"],
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Space Grotesk", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #f5f0e8; color: #1a1a1a; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0; }
+        /* Brutalist Focus States */
+        input:focus, textarea:focus, button:focus { outline: none; box-shadow: 4px 4px 0px #1a1a1a; }
+        input[type="radio"]:focus { box-shadow: none; outline: 2px solid #1a1a1a; outline-offset: 2px; }
+    </style>
+</head>
+<body class="font-body min-h-screen flex flex-col antialiased bg-background text-on-background selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="bg-background border-b-4 border-primary flex justify-between items-center w-full px-6 py-4 sticky top-0 z-50">
+<div class="flex items-center gap-8">
+<a class="font-headline font-black text-2xl text-primary uppercase tracking-tighter hover:text-secondary transition-colors duration-75" href="#">
+                BAUHAUS POLL
+            </a>
+<nav class="hidden md:flex gap-6">
+<a class="font-headline font-bold text-2xl uppercase tracking-tighter text-primary border-b-4 border-primary-container pb-1 hover:bg-primary-fixed hover:text-on-primary-fixed transition-colors duration-75" href="#">Sondages</a>
+<a class="font-headline font-bold text-2xl uppercase tracking-tighter text-on-surface-variant hover:bg-primary-fixed hover:text-on-primary-fixed transition-colors duration-75" href="#">Créer</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="font-headline font-bold uppercase tracking-tight text-on-primary bg-primary border-4 border-primary px-6 py-2 hover:bg-primary-container hover:text-primary active:translate-y-1 transition-all duration-75 shadow-[4px_4px_0px_#1a1a1a] hover:shadow-none translate-y-[-4px] hover:translate-y-0">
+                Connecter
+            </button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 flex flex-col gap-16">
+<!-- Header Section -->
+<section class="border-b-4 border-primary pb-8">
+<h1 class="font-headline font-black text-5xl md:text-7xl uppercase tracking-tighter leading-none mb-6">
+                Éducation &amp; <span class="text-secondary">Jeux Interactifs</span>
+</h1>
+<p class="font-body text-xl font-medium max-w-2xl text-on-surface-variant">
+                Partagez votre point de vue sur l'intégration des jeux dans le milieu scolaire. Vos réponses nous aident à comprendre l'impact potentiel sur l'apprentissage.
+            </p>
+</section>
+<!-- Form Section -->
+<section class="bg-surface-container-lowest border-4 border-primary p-8 md:p-12 shadow-[8px_8px_0px_#1a1a1a]">
+<form class="flex flex-col gap-12">
+<!-- Text Input 1 -->
+<div class="flex flex-col gap-4">
+<label class="font-headline font-bold text-2xl md:text-3xl leading-tight text-primary" for="q1">
+                        Pensez vous que les jeux interactifs serait un bon moyen pour éduquer et s’amuser en meme temps?
+                    </label>
+<textarea class="w-full bg-background border-4 border-primary p-4 font-body text-lg resize-y focus:border-secondary transition-colors" id="q1" name="q1" placeholder="Votre réponse détaillée ici..." rows="3"></textarea>
+</div>
+<!-- Divider -->
+<hr class="border-t-4 border-primary opacity-20"/>
+<!-- Text Input 2 -->
+<div class="flex flex-col gap-4">
+<label class="font-headline font-bold text-2xl md:text-3xl leading-tight text-primary" for="q2">
+                        Quel est votre point de vue sur les jeux interactifs dans le milieu scolaire (ecole..)
+                    </label>
+<textarea class="w-full bg-background border-4 border-primary p-4 font-body text-lg resize-y focus:border-secondary transition-colors" id="q2" name="q2" placeholder="Exprimez votre opinion..." rows="4"></textarea>
+</div>
+<!-- Divider -->
+<hr class="border-t-4 border-primary opacity-20"/>
+<!-- Radio Group -->
+<div class="flex flex-col gap-6">
+<label class="font-headline font-bold text-2xl md:text-3xl leading-tight text-primary">
+                        Quel matiére ajouteriez vous dans un jeu interactif
+                    </label>
+<div class="flex flex-col gap-4 font-body text-xl">
+<label class="flex items-center gap-4 cursor-pointer group">
+<div class="relative flex items-center justify-center w-8 h-8">
+<input class="peer appearance-none w-8 h-8 border-4 border-primary rounded-none bg-background checked:bg-secondary cursor-pointer transition-colors" name="matiere" type="radio" value="math"/>
+<span class="material-symbols-outlined absolute text-on-error opacity-0 peer-checked:opacity-100 pointer-events-none" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<span class="group-hover:text-secondary transition-colors font-medium">Mathématiques</span>
+</label>
+<label class="flex items-center gap-4 cursor-pointer group">
+<div class="relative flex items-center justify-center w-8 h-8">
+<input class="peer appearance-none w-8 h-8 border-4 border-primary rounded-none bg-background checked:bg-secondary cursor-pointer transition-colors" name="matiere" type="radio" value="sciences"/>
+<span class="material-symbols-outlined absolute text-on-error opacity-0 peer-checked:opacity-100 pointer-events-none" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<span class="group-hover:text-secondary transition-colors font-medium">sciences</span>
+</label>
+<label class="flex items-center gap-4 cursor-pointer group">
+<div class="relative flex items-center justify-center w-8 h-8">
+<input class="peer appearance-none w-8 h-8 border-4 border-primary rounded-none bg-background checked:bg-secondary cursor-pointer transition-colors" name="matiere" type="radio" value="anglais"/>
+<span class="material-symbols-outlined absolute text-on-error opacity-0 peer-checked:opacity-100 pointer-events-none" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<span class="group-hover:text-secondary transition-colors font-medium">anglais</span>
+</label>
+<label class="flex items-center gap-4 cursor-pointer group">
+<div class="relative flex items-center justify-center w-8 h-8">
+<input class="peer appearance-none w-8 h-8 border-4 border-primary rounded-none bg-background checked:bg-secondary cursor-pointer transition-colors" name="matiere" type="radio" value="musique"/>
+<span class="material-symbols-outlined absolute text-on-error opacity-0 peer-checked:opacity-100 pointer-events-none" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<span class="group-hover:text-secondary transition-colors font-medium">musique</span>
+</label>
+<label class="flex items-center gap-4 cursor-pointer group">
+<div class="relative flex items-center justify-center w-8 h-8">
+<input class="peer appearance-none w-8 h-8 border-4 border-primary rounded-none bg-background checked:bg-secondary cursor-pointer transition-colors" name="matiere" type="radio" value="histoire_geo"/>
+<span class="material-symbols-outlined absolute text-on-error opacity-0 peer-checked:opacity-100 pointer-events-none" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<span class="group-hover:text-secondary transition-colors font-medium">histoire et géographie</span>
+</label>
+</div>
+</div>
+<!-- Submit Button -->
+<div class="pt-8 border-t-4 border-primary">
+<button class="w-full md:w-auto font-headline font-black text-3xl uppercase tracking-tighter bg-primary-container text-primary border-4 border-primary px-12 py-6 hover:bg-primary hover:text-primary-container active:translate-y-2 transition-all duration-75 shadow-[8px_8px_0px_#1a1a1a] hover:shadow-[2px_2px_0px_#1a1a1a] translate-y-[-8px] hover:translate-y-[-2px] flex items-center justify-center gap-4 group" type="submit">
+                        ENVOYER LES RÉPONSES
+                        <span class="material-symbols-outlined text-4xl group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</button>
+</div>
+</form>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary border-t-4 border-primary w-full px-8 py-10 flex flex-col md:flex-row justify-between items-center gap-6 mt-auto z-40">
+<div class="font-headline font-black text-xl text-on-primary uppercase">
+            BAUHAUS POLL
+        </div>
+<nav class="flex flex-wrap justify-center gap-6">
+<a class="font-headline font-bold uppercase tracking-tight text-sm text-on-primary opacity-80 hover:opacity-100 hover:text-primary-fixed transition-opacity duration-150" href="#">Archives</a>
+<a class="font-headline font-bold uppercase tracking-tight text-sm text-on-primary opacity-80 hover:opacity-100 hover:text-primary-fixed transition-opacity duration-150" href="#">Confidentialité</a>
+<a class="font-headline font-bold uppercase tracking-tight text-sm text-on-primary opacity-80 hover:opacity-100 hover:text-primary-fixed transition-opacity duration-150" href="#">Contact</a>
+</nav>
+<div class="font-headline font-bold uppercase tracking-tight text-sm text-on-primary opacity-60">
+            © 2024 BAUHAUS POLL. FORM FOLLOWS FUNCTION.
+        </div>
+</footer>
+</body></html>
